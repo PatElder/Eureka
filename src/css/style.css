@@ -11,3 +11,6 @@
   font-family: "MyFont";
   background: url("../icon.jpg");
 }
+body {
+  background-color: cadetblue;
+}
