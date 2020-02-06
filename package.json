@@ -1,34 +1,41 @@
 {
   "name": "eureka",
   "version": "1.0.0",
-  "description": "",
+  "description": "Presidential News",
   "private": true,
   "scripts": {
     "test": "echo exit 0",
     "clean": "rm dist/bundle.js",
     "build": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
-    "watch-dev": "webpack -d --mode development --watch"
+    "watch": "webpack -d --mode development --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PatElder/Eureka.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "President",
+    "News"
+  ],
+  "author": "Gracia and Patrick",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PatElder/Eureka/issues"
   },
   "homepage": "https://github.com/PatElder/Eureka#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "file-loader": "^5.0.2",
+    "handlebars": "^4.7.3",
+    "handlebars-loader": "^1.7.1",
+    "lodash": "^4.17.15",
     "style-loader": "^1.1.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "lodash": "^4.17.15"
   }
 }
