@@ -6,8 +6,22 @@
   font-style: normal;
 }
 
-.hello {
-  color: red;
-  font-family: "MyFont";
-  background: url("../icon.jpg");
+.news {
+  display: grid;
+  grid-template-columns: 1fr;
+
+}
+
+.news > img {
+  justify-self: center;
+  height: 250px;
+  width: 250px;
+}
+
+.news > h2 {
+  font-size: 1em;
+}
+
+.news > p {
+  font-size: 1em;
 }
