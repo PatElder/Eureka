@@ -12,6 +12,23 @@ async function data(search, num, country) {
   return newsData;
 }
 
+const searchArray = [data("Trump", 4, "us"),data("Trudeau", 2, "ca"), data("López", 2, "mx")];
+
+const createHeadings = async () => {
+  searchArray.forEach(element => {
+  const navList = document.getElementsByTagName("ul");
+  const navEl = document.createElement("li");
+  navEl.innerHTML = `<li>${arguments[0]}</li>`
+  navEl.addEventListener("click", element);
+  console.log(navList);
+  document.body.appendChild(navEl);
+  });
+}
+
+
+
 window.onload = () => {
-  data("Virus", 5, "ca");
+createHeadings();
+
+  
 };
