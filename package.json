@@ -8,7 +8,8 @@
     "clean": "rm dist/bundle.js",
     "build": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
-    "watch": "webpack -d --mode development --watch"
+    "watch": "npm run build && webpack -d --mode development --watch",
+    "start": "npx http-server ./dist"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "@babel/runtime": "^7.8.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-syntax-async-functions": "^6.13.0",
+    "corejs": "^1.0.0",
     "css-loader": "^3.4.2",
     "file-loader": "^5.0.2",
     "handlebars": "^4.7.3",

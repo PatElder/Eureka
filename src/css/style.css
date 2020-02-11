@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+ul > * {
+  cursor: pointer;
+}
+
 .news {
   display: grid;
   grid-template-columns: 1fr;

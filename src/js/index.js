@@ -13,9 +13,9 @@ async function data(search, num, country) {
 }
 
 const searchArray = [
-  ["Trump", 4, "us"],
-  ["Trudeau", 2, "ca"],
-  ["López", 2, "mx"],
+  ["Trump", 4, "en"],
+  ["Trudeau", 4, "en"],
+  ["López Obrador", 2, "es"],
   ["Search"]
 ];
 
@@ -27,12 +27,8 @@ async function createHeadings() {
     navEl.innerHTML = `<li>${searchArray[y][0]}</li>`;
     navEl.addEventListener("click", async () => {
       document.getElementsByTagName("div").innerHTML = "";
-      await data(searchArray[0][y], searchArray[0][y], searchArray[0][y]);
-      console.log(
-        data(searchArray[y][y], searchArray[y][y + 1], searchArray[y][y + 2])
-      );
+      await data(searchArray[y][0], searchArray[y][1], searchArray[y][2]);
     });
-    console.log(y);
     document.body.appendChild(navList);
   }
 }
