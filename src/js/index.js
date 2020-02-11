@@ -33,32 +33,37 @@ async function createHeadings() {
       await data(searchArray[y][0], searchArray[y][1], searchArray[y][2]);
     });
   }
-  await createSearch();
+  createSearch();
   header.appendChild(navList);
   document.documentElement.appendChild(header);
 }
 
-async function createSearch() {
+function createSearch() {
   const listEl = document.createElement("li");
+  const searchBtn = document.createElement("button");
+  searchBtn.textContent = "Search";
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "text");
-  searchEl.addEventListener("input", () => {
+  searchBtn.addEventListener("click", () => {
     const searchTerm = searchEl.value;
-    clearTimeout(searchHandler);
-    const searchHandler = setTimeout(() => {
-      data(searchTerm, 4, "en");
-      const searchedEl = document.createElement("li");
-      searchedEl.textContent = searchTerm;
-      searchedEl.addEventListener("click", async () => {
-        await data(searchTerm, 4, "en");
-      });
-      navList.appendChild(searchedEl);
-      searchEl.value = "";
-    }, 2000);
+    data(searchTerm, 4, "en");
   });
+
+  createSearchElements();
   listEl.appendChild(searchEl);
+  listEl.appendChild(searchBtn);
   navList.appendChild(listEl);
 }
+
+const createSearchElements = async () => {
+  const searchedEl = document.createElement("li");
+  searchedEl.textContent = document.querySelector("input").value;
+  searchedEl.addEventListener("click", async () => {
+    await data(searchTerm, 4, "en");
+  });
+  navList.appendChild(searchedEl);
+  document.querySelector("input").value = "";
+};
 
 window.onload = async () => {
   await createHeadings();
