@@ -1,7 +1,7 @@
 @font-face {
   font-family: "MyFont";
-  src: url("../my-font.woff2") format("woff2"),
-    url("../my-font.woff") format("woff");
+  src: url("../fonts/my-font.woff2") format("woff2"),
+    url("../fonts/my-font.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
@@ -9,7 +9,6 @@
 .news {
   display: grid;
   grid-template-columns: 1fr;
-
 }
 
 .news > img {
@@ -19,9 +18,11 @@
 }
 
 .news > h2 {
+  justify-self: center;
   font-size: 1em;
 }
 
 .news > p {
+  justify-self: center;
   font-size: 1em;
 }
