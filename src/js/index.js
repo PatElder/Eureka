@@ -1,20 +1,38 @@
-import _ from "lodash";
+import newsTemplate from "../hbs/news.hbs";
 import "../css/style.css";
-import Icon from "../icon.jpg";
+import { getNews } from "../js/newsFetch";
 
-function component() {
-  const element = document.createElement("div");
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
-
-  const myIcon = new Image();
-  myIcon.src = Icon;
-
-  element.appendChild(myIcon);
-
-  return element;
+async function data(search, num, country) {
+  const newsData = await getNews(search, num, country);
+  for (let i = 0; i < num; i++) {
+    const newsEl = document.createElement("div");
+    newsEl.innerHTML = newsTemplate(newsData.articles[i]);
+    document.body.appendChild(newsEl);
+  }
+  return newsData;
 }
 
-document.body.appendChild(component());
+const searchArray = [
+  ["Trump", 4, "en"],
+  ["Trudeau", 4, "en"],
+  ["López Obrador", 2, "es"],
+  ["Search"]
+];
+
+async function createHeadings() {
+  const navList = document.createElement("ul");
+  for (let y = 0; y < searchArray.length; ++y) {
+    const navEl = document.createElement("li");
+    navList.appendChild(navEl);
+    navEl.innerHTML = `<li>${searchArray[y][0]}</li>`;
+    navEl.addEventListener("click", async () => {
+      document.getElementsByTagName("div").innerHTML = "";
+      await data(searchArray[y][0], searchArray[y][1], searchArray[y][2]);
+    });
+    document.body.appendChild(navList);
+  }
+}
+
+window.onload = () => {
+  createHeadings();
+};
