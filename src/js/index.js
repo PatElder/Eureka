@@ -28,7 +28,7 @@ async function createHeadings() {
   for (let y = 0; y < searchArray.length; ++y) {
     const navEl = document.createElement("li");
     navList.appendChild(navEl);
-    navEl.innerHTML = `<li>${searchArray[y][0]}</li>`;
+    navEl.innerHTML = `${searchArray[y][0]}`;
     navEl.addEventListener("click", async () => {
       await data(searchArray[y][0], searchArray[y][1], searchArray[y][2]);
     });
@@ -47,7 +47,14 @@ async function createSearch() {
     clearTimeout(searchHandler);
     const searchHandler = setTimeout(() => {
       data(searchTerm, 4, "en");
-    }, 1000);
+      const searchedEl = document.createElement("li");
+      searchedEl.textContent = searchTerm;
+      searchedEl.addEventListener("click", async () => {
+        await data(searchTerm, 4, "en");
+      });
+      navList.appendChild(searchedEl);
+      searchEl.value = "";
+    }, 2000);
   });
   listEl.appendChild(searchEl);
   navList.appendChild(listEl);
