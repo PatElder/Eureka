@@ -47,9 +47,9 @@ function createSearch() {
   searchBtn.addEventListener("click", () => {
     const searchTerm = searchEl.value;
     data(searchTerm, 4, "en");
+    createSearchElements();
   });
 
-  createSearchElements();
   listEl.appendChild(searchEl);
   listEl.appendChild(searchBtn);
   navList.appendChild(listEl);
@@ -57,9 +57,10 @@ function createSearch() {
 
 const createSearchElements = async () => {
   const searchedEl = document.createElement("li");
-  searchedEl.textContent = document.querySelector("input").value;
+  const searchedTerm = document.querySelector("input").value;
+  searchedEl.textContent = searchedTerm;
   searchedEl.addEventListener("click", async () => {
-    await data(searchTerm, 4, "en");
+    await data(searchedTerm, 4, "en");
   });
   navList.appendChild(searchedEl);
   document.querySelector("input").value = "";
