@@ -44,10 +44,14 @@ function createSearch() {
   searchBtn.textContent = "Search";
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "text");
-  searchBtn.addEventListener("click", () => {
-    const searchTerm = searchEl.value;
-    data(searchTerm, 4, "en");
-    createSearchElements();
+  searchBtn.addEventListener("keyup", () => {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      const searchTerm = searchEl.value;
+      data(searchTerm, 4, "en");
+      createSearchElements();
+      searchBtn.click();
+    }
   });
 
   listEl.appendChild(searchEl);
