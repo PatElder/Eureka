@@ -9,7 +9,7 @@ const searchArray = [
 ];
 export const navList = document.createElement("ul");
 
-async function data(search, num, language) {
+export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
@@ -44,14 +44,10 @@ function createSearch() {
   searchBtn.textContent = "Search";
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "text");
-  searchBtn.addEventListener("keyup", () => {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-      const searchTerm = searchEl.value;
-      data(searchTerm, 4, "en");
-      createSearchElements();
-      searchBtn.click();
-    }
+  searchBtn.addEventListener("click", async () => {
+    const searchTerm = searchEl.value;
+    createSearchElements();
+    await data(searchTerm, 4, "en");
   });
 
   listEl.appendChild(searchEl);

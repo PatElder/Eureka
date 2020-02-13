@@ -1,4 +1,4 @@
-import { navList } from "./menu";
+import { navList, data } from "./menu";
 
 export const createSearchElements = async () => {
   const searchedEl = document.createElement("li");
