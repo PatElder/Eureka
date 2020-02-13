@@ -24,6 +24,9 @@ async function data(search, num, language) {
 
 export async function createHeadings() {
   const header = document.createElement("header");
+  const imgNav = document.createElement("div");
+  imgNav.classList.add("logo");
+  header.appendChild(imgNav);
 
   for (let y = 0; y < searchArray.length; ++y) {
     const navEl = document.createElement("li");
