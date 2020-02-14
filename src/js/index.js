@@ -1,5 +1,5 @@
 import "../css/style.css";
-import { createHeadings } from "./components/menu";
+import { createHeadings } from "./components/Menu/menu";
 import { createFooter } from "../js/components/footer";
 window.onload = async () => {
   await createHeadings();
