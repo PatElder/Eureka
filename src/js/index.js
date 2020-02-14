@@ -5,5 +5,6 @@ import "../css/style.css";
 
 window.onload = async () => {
   await createHeadings();
+  createHome();
   createFooter();
 };
