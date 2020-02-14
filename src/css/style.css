@@ -1,7 +1,7 @@
-/* @font-face {
-  font-family: "MyFont";
-  src: url("../fonts/my-font.woff2") format("woff2"),
-    url("../fonts/my-font.woff") format("woff");
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Black.ttf") format("ttf"),
+    url("../fonts/Roboto-Light.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
 } */
@@ -95,6 +95,9 @@ header > ul > li > button:hover {
   background-color: white;
   margin: 1em 2em;
   padding: 1em 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: "Roboto";
 }
 
 .news > img {
