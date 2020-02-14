@@ -1,5 +1,6 @@
 import { getNews } from "../../api/newsFetch";
 import newsTemplate from "../../../hbs/news.hbs";
+import homeTemplate from "../../../hbs/home.hbs";
 import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
 
@@ -10,11 +11,14 @@ export async function data(search, num, language) {
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
   }
+  let mainEl = document.createElement("main");
+  mainEl.id = "content";
   for (let i = 0; i < num; i++) {
     const newsEl = document.createElement("div");
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
-    document.body.appendChild(newsEl);
+    mainEl.appendChild(newsEl);
   }
+  document.body.appendChild(mainEl);
   return newsData;
 }
 
@@ -25,6 +29,11 @@ export async function createHeadings() {
   const header = document.createElement("header");
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
+  imgNav.id = "homeLogo";
+
+  imgNav.addEventListener("click", () => {
+    document.getElementById("content").innerHTML = homeTemplate();
+  });
   header.appendChild(imgNav);
 
   for (let y = 0; y < searchArray.length; ++y) {

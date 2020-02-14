@@ -4,21 +4,35 @@
     url("../fonts/Roboto-Light.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
-} */
+}
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
   color: darkgray;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 20vh;
+}
 
-  /*display: flex;
-  flex-direction: column;*/
+main {
+  display: grid;
+  grid-gap: 1em;
+  margin-top: 20vh;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 1em;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+p {
+  margin: 0 1em 0 2em;
+  font-family: "Roboto", sans-serif;
 }
 
 header {
+  font-family: "Roboto", sans-serif;
   position: fixed;
   top: 0;
   display: inline-flex;
@@ -33,7 +47,6 @@ header > ul > li {
   float: left;
   list-style-type: none;
   list-style: none;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
   padding: 15px;
 }
@@ -50,82 +63,91 @@ header > ul {
   overflow: hidden;
 }
 header > ul > li > input {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   box-shadow: 2px 2px 3px 2px rgb(179, 179, 179);
   color: rgb(13, 33, 106);
 }
 
 header > ul > li > button {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(81, 81, 81);
   border: 1px solid rgb(208, 208, 208);
   border-radius: 10px;
   background-color: none;
   margin-left: 0.5em;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 0.7em;
   cursor: pointer;
 }
 header > ul > li > button:hover {
   color: rgb(162, 24, 24);
 }
-/*header > ul > li > a {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 20px;
-}*/
 
 .logo {
-  width: 5vw;
-  height: 5vh;
+  width: 2vw;
+  height: auto;
   cursor: pointer;
-  /*background-color: rgb(196, 125, 139);*/
   background-image: url("../img/logownews.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  /*border: 1px solid rgb(255, 0, 200);*/
   padding: 3vw 5vw;
   margin: 0 2em 0 3em;
 }
 
 .news {
   background-color: white;
-  margin: 1em 2em;
-  padding: 1em 2em;
-  display: grid;
-  grid-template-columns: 1fr;
+  margin: 1em auto;
+  padding: 0 0 2em 0;
   font-family: "Roboto";
 }
 
 .news > img {
-  margin: 0;
-  padding: 0;
   justify-self: center center;
-  height: 30%;
   width: 100%;
+  height: auto;
 }
 
 .news > h2 {
   text-justify: center center;
   color: rgb(90, 90, 90);
   font-size: 2em;
-  margin-bottom: 1px black solid;
 }
 
 .news:focus,
 .news:hover {
   background-color: #f1f1f1;
   outline: 1px solid hsl(0, 0%, 80%);
-  /* box-shadow: 0 0 1px 2px rgba(0,0,0,0.5);*/
+}
+
+.home-news {
+  display: grid;
+  grid-column: 2em;
+  grid-row-gap: 3em;
+  color: rgb(88, 88, 88);
 }
 
 footer {
   background-color: darkgrey;
+  font-size: 0.8em;
   text-align: center;
+  letter-spacing: 0.1em;
+  color: rgb(88, 88, 88);
+  padding: 4em 0 7em 0;
+  margin-top: 5em;
+}
+.footer-news > p {
+  margin-top: 0.5em;
+}
+
+a {
   color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(167, 28, 28);
 }
 
 /* 
@@ -134,7 +156,7 @@ footer {
 */
 
 @media (max-width: 480px) {
-  body {
+  main {
     margin: 0;
     background-color: rgb(220, 223, 223);
     grid-template-columns: 1fr;
@@ -187,8 +209,11 @@ footer {
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  body {
-    background-color: rgb(243, 243, 243);
+  main {
+    grid-template-columns: repeat(2, 30em);
+  }
+  main > .home-news {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -198,7 +223,11 @@ footer {
 */
 
 @media (min-width: 1281px) {
-  body {
-    background-color: rgb(248, 248, 248);
+  main {
+    grid-template-columns: repeat(2, 30em);
+  }
+  main > .home-news {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
