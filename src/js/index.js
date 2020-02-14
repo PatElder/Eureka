@@ -1,6 +1,8 @@
-import "../css/style.css";
 import { createHeadings } from "./components/Menu/menu";
-import { createFooter } from "../js/components/footer";
+import { createHome } from "./components/home";
+import { createFooter } from "./components/footer";
+import "../css/style.css";
+
 window.onload = async () => {
   await createHeadings();
   createFooter();

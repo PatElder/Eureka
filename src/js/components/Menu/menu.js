@@ -19,9 +19,8 @@ export async function data(search, num, language) {
 }
 
 export async function createHeadings() {
-  console.log(searchArray);
   checkForReRender();
-  console.log(searchArray);
+
   const header = document.createElement("header");
 
   for (let y = 0; y < searchArray.length; ++y) {

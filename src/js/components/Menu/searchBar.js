@@ -20,3 +20,8 @@ export function createSearch() {
   listEl.appendChild(searchBtn);
   navList.appendChild(listEl);
 }
+
+export const destroySearch = () => {
+  document.querySelector("button").remove();
+  document.querySelector("input").remove();
+};
