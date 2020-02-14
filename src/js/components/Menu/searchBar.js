@@ -10,7 +10,7 @@ export function createSearch() {
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "text");
   searchBtn.addEventListener("click", async () => {
-    const searchTerm = searchEl.value;
+    const searchTerm = formattedSearch(searchEl.value);
     storeSearch(searchTerm);
     createSearchElements();
     await data(searchTerm, 4, "en");
@@ -25,3 +25,10 @@ export const destroySearch = () => {
   document.querySelector("button").remove();
   document.querySelector("input").remove();
 };
+
+export const formattedSearch = searchWord =>
+  searchWord
+    .trim()
+    .trim()
+    .charAt(0)
+    .toUpperCase() + searchWord.trim().substring(1);

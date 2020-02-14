@@ -7,10 +7,11 @@ export const navList = document.createElement("ul");
 
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
+  const displayQty = newsData.articles.length;
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
   }
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < displayQty; i++) {
     const newsEl = document.createElement("div");
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
     document.body.appendChild(newsEl);
