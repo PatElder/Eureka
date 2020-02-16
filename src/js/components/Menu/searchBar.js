@@ -8,7 +8,7 @@ export function createSearch() {
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "search");
   searchEl.id = "searchBar"
-  autocomplete(searchEl, searchArray)
+  autocomplete(searchEl)(searchArray)
   searchBtn.addEventListener("click", async () => {
     const searchTerm = searchEl.value;
     if(searchTerm !== null){
@@ -40,10 +40,10 @@ const autocomplete = inp => arr => {
       a.classList.add("autocomplete-items");
       inp.parentNode.appendChild(a);
       arr.map(el => {
-        if (el.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        if (el.toString().substr(0, val.length).toUpperCase() == val.toUpperCase()) {
           listItem = document.createElement("div");
-          listItem.innerHTML = `<strong> ${el.substr(0, val.length)}  </strong>`;
-          listItem.innerHTML += el.substr(val.length);
+          listItem.innerHTML = `<strong> ${el.toString().substr(0, val.length)}  </strong>`;
+          listItem.innerHTML += el.toString().substr(val.length);
           listItem.innerHTML += `<input type="hidden" value="${el}">`;
           listItem.addEventListener("click", () => {
               inp.value = document.getElementById("searchBar").value;
@@ -54,7 +54,7 @@ const autocomplete = inp => arr => {
       })
   });
   inp.addEventListener("keydown", e => {
-      let x = document.getElementById(input.id + "autocomplete-list");
+      let x = document.getElementById(e.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
       if (e.keyCode == 40) {
         currentFocus++;
@@ -77,17 +77,17 @@ const autocomplete = inp => arr => {
     x[currentFocus].classList.add("autocomplete-active");
   }
   const removeActive = x => {
-    x.map(el => {
-      el.classList.remove("autocomplete-active");
-    })
+    for(let i = 0; i < x.length; ++i){
+      x[i].classList.remove("autocomplete-active");
+    }
   }
   const  closeAllLists = lists => {
     const x = document.getElementsByClassName("autocomplete-items");
-    x.map(el => {
-      if (lists != el && lists != inp) {
-      el.parentNode.removeChild(el);
+    for(let i = 0; i < x.length; ++i){
+      if (lists != x[i] && lists != inp) {
+      x[i].parentNode.removeChild(x[i]);
     }
-  })
+  }
 }
 document.addEventListener("click", ev => {
     closeAllLists(ev.target);
