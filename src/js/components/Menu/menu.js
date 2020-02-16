@@ -5,6 +5,8 @@ import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
 
 export const navList = document.createElement("ul");
+navList.classList.add("dropdown-content");
+navList.id="myDropdown";
 
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
@@ -23,9 +25,7 @@ export async function data(search, num, language) {
 }
 
 export async function createHeadings() {
-  console.log(searchArray);
   checkForReRender();
-  console.log(searchArray);
   const header = document.createElement("header");
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
@@ -36,6 +36,14 @@ export async function createHeadings() {
   });
   header.appendChild(imgNav);
 
+  const dropDown = document.createElement("div");
+  dropDown.classList.add("dropDown");
+  const btnDropdown = dropDown.createElement("button");
+  btnDropdown.addEventListener("click", ()=>{
+    document.getElementById("myDropdown").classList.toggle("show");
+  })
+
+
   for (let y = 0; y < searchArray.length; ++y) {
     const navEl = document.createElement("li");
     navList.appendChild(navEl);
@@ -45,6 +53,9 @@ export async function createHeadings() {
     });
   }
   createSearch();
-  header.appendChild(navList);
+  header.appendChild(dropDown);
+  dropDown.appendChild(navList);
   document.documentElement.appendChild(header);
 }
+
+
