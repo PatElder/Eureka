@@ -38,7 +38,8 @@ export async function createHeadings() {
 
   const dropDown = document.createElement("div");
   dropDown.classList.add("dropDown");
-  const btnDropdown = dropDown.createElement("button");
+  const btnDropdown = document.createElement("button");
+  dropDown.appendChild(btnDropdown)
   btnDropdown.addEventListener("click", ()=>{
     document.getElementById("myDropdown").classList.toggle("show");
   })
