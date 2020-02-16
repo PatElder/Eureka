@@ -4,7 +4,7 @@ import { createFooter } from "./components/footer";
 
 window.onload = async () => {
   await createHeadings();
-
+  createHome();
   createFooter();
 };
 

@@ -1,5 +1,4 @@
 import { createSearchElements } from "./menuitem";
-import { navList } from "../Menu/menu";
 import { storeSearch } from "../../localStorage/localSearch";
 import { data } from "../Menu/menu";
 
@@ -27,5 +26,6 @@ export function createSearch() {
   });
   listEl.appendChild(searchEl);
   listEl.appendChild(searchBtn);
-  navList.appendChild(listEl);
+  console.log(
+    document.getElementById("GRACIA"));
 }

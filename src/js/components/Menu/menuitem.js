@@ -1,4 +1,9 @@
-import { navList, data } from "./menu";
+import { data } from "./menu";
+import {
+  destroySearch,
+  createSearch,
+  formattedSearch
+} from "../Menu/searchBar";
 
 export const createSearchElements = async () => {
   const searchedEl = document.createElement("li");
@@ -9,6 +14,8 @@ export const createSearchElements = async () => {
   searchedEl.addEventListener("click", async () => {
     await data(searchedTerm, 4, "en");
   });
-  navList.appendChild(searchedEl);
+  destroySearch();
+  document.getElementById("GRACIA").appendChild(searchedEl);
+  createSearch();
   document.querySelector("input").value = "";
 };

@@ -4,19 +4,18 @@ import homeTemplate from "../../../hbs/home.hbs";
 import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
 
-export const navList = document.createElement("ul");
-navList.classList.add("dropdown-content");
 navList.id="myDropdown";
-
+navList.classList.add("dropdown-content");
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
+
   }
   let mainEl = document.createElement("main");
   mainEl.id = "content";
-  for (let i = 0; i < num; i++) {
-    const newsEl = document.createElement("div");
+  for (let i = 0; i < displayQty; i++) {
+    const newsEl = document.createElement("div"); 
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
     mainEl.appendChild(newsEl);
   }
@@ -26,7 +25,10 @@ export async function data(search, num, language) {
 
 export async function createHeadings() {
   checkForReRender();
-  const header = document.createElement("header");
+
+  const header = document.querySelector("header");
+  const navList = document.createElement("ul");
+  console.log(navList)
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
   imgNav.id = "homeLogo";
