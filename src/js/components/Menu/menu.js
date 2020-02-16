@@ -10,12 +10,13 @@ navList.id="myDropdown";
 
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
+  const displayQty = newsData.articles.length;
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
   }
-  let mainEl = document.createElement("main");
   mainEl.id = "content";
-  for (let i = 0; i < num; i++) {
+  let mainEl = document.createElement("main");
+  for (let i = 0; i < displayQty; i++) {
     const newsEl = document.createElement("div");
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
     mainEl.appendChild(newsEl);
@@ -26,6 +27,7 @@ export async function data(search, num, language) {
 
 export async function createHeadings() {
   checkForReRender();
+
   const header = document.createElement("header");
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
