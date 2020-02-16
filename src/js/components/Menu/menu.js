@@ -1,31 +1,49 @@
 import { getNews } from "../../api/newsFetch";
 import newsTemplate from "../../../hbs/news.hbs";
+import homeTemplate from "../../../hbs/home.hbs";
 import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
 
 export const navList = document.createElement("ul");
+navList.classList.add("dropdown-content");
+navList.id="myDropdown";
 
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
-  const displayQty = newsData.articles.length;
   if (document.body.hasChildNodes()) {
     document.body.innerHTML = "";
   }
-  for (let i = 0; i < displayQty; i++) {
+  let mainEl = document.createElement("main");
+  mainEl.id = "content";
+  for (let i = 0; i < num; i++) {
     const newsEl = document.createElement("div");
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
-    document.body.appendChild(newsEl);
+    mainEl.appendChild(newsEl);
   }
+  document.body.appendChild(mainEl);
   return newsData;
 }
 
 export async function createHeadings() {
   checkForReRender();
-
   const header = document.createElement("header");
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
+  imgNav.id = "homeLogo";
+
+  imgNav.addEventListener("click", () => {
+    document.getElementById("content").innerHTML = homeTemplate();
+  });
   header.appendChild(imgNav);
+
+  const dropDown = document.createElement("div");
+  dropDown.classList.add("dropDown");
+  const btnDropdown = document.createElement("button");
+  dropDown.appendChild(btnDropdown)
+  btnDropdown.addEventListener("click", ()=>{
+    document.getElementById("myDropdown").classList.toggle("show");
+  })
+
 
   for (let y = 0; y < searchArray.length; ++y) {
     const navEl = document.createElement("li");
@@ -36,6 +54,9 @@ export async function createHeadings() {
     });
   }
   createSearch();
-  header.appendChild(navList);
+  header.appendChild(dropDown);
+  dropDown.appendChild(navList);
   document.documentElement.appendChild(header);
 }
+
+

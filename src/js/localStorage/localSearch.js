@@ -5,19 +5,16 @@ export let searchArray = [
 ];
 
 export const storeSearch = search => {
-  let firstReplace = 3;
-  const maxTerms = 6;
-  console.log(document.querySelector(`[data-id='3']`));
-
-  if (searchArray.length < maxTerms) {
+  let firstReplace = 5;
+  if (searchArray.length < 9) {
     searchArray.push([search, "4", "en"]);
   } else {
-    searchArray[firstReplace][0] = search;
-    if (firstReplace !== maxTerms) {
-      firstReplace++;
+    searchArray[firstReplace] = search;
+
+    if (firstReplace === 9) {
+      firstReplace = 5;
     } else {
-      firstReplace = 3;
-      document.querySelector(`[data-id='3']`).remove();
+      firstReplace++;
     }
   }
   storeLocally(searchArray);

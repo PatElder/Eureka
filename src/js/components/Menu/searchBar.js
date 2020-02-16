@@ -9,26 +9,23 @@ export function createSearch() {
   searchBtn.textContent = "Search";
   const searchEl = document.createElement("input");
   searchEl.setAttribute("type", "text");
+
   searchBtn.addEventListener("click", async () => {
-    const searchTerm = formattedSearch(searchEl.value);
+    const searchTerm = searchEl.value;
+    if(searchTerm !== null){
     storeSearch(searchTerm);
     createSearchElements();
     await data(searchTerm, 4, "en");
+    } else {
+      alert("Search requires a value.")
+    }
   });
-
+  searchEl.addEventListener("keyup", () => {
+  if (event.keyCode === 13) {
+    searchBtn.click();
+  }
+  });
   listEl.appendChild(searchEl);
   listEl.appendChild(searchBtn);
   navList.appendChild(listEl);
 }
-
-export const destroySearch = () => {
-  document.querySelector("button").remove();
-  document.querySelector("input").remove();
-};
-
-export const formattedSearch = searchWord =>
-  searchWord
-    .trim()
-    .trim()
-    .charAt(0)
-    .toUpperCase() + searchWord.trim().substring(1);
