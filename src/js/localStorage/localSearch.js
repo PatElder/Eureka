@@ -1,5 +1,5 @@
 export let searchArray = [
-  ["United-States", 6, "en"],
+  ["United States", 6, "en"],
   ["Canada", 4, "en"],
   ["Mexico", 4, "es"]
 ];
