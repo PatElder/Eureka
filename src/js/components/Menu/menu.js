@@ -4,19 +4,20 @@ import homeTemplate from "../../../hbs/home.hbs";
 import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
 
-export const navList = document.createElement("ul");
-navList.classList.add("dropdown-content");
-navList.id="myDropdown";
 
 export async function data(search, num, language) {
   const newsData = await getNews(search, num, language);
-  if (document.body.hasChildNodes()) {
-    document.body.innerHTML = "";
+  if (document.getElementById("homeNews") !== null) {
+    document.getElementById("homeNews").remove();
   }
+  if(document.getElementById("content") !== null ){
+    document.getElementById("content").remove();
+  }
+  const displayQty = newsData.articles.length
   let mainEl = document.createElement("main");
   mainEl.id = "content";
-  for (let i = 0; i < num; i++) {
-    const newsEl = document.createElement("div");
+  for (let i = 0; i < displayQty; i++) {
+    const newsEl = document.createElement("div"); 
     newsEl.innerHTML = newsTemplate(newsData.articles[i]);
     mainEl.appendChild(newsEl);
   }
@@ -26,7 +27,11 @@ export async function data(search, num, language) {
 
 export async function createHeadings() {
   checkForReRender();
-  const header = document.createElement("header");
+
+  const header = document.getElementsByTagName("header")[0];
+  const navList = document.createElement("ul");
+  navList.id="myDropdown";
+  navList.classList.add("dropdown-content");
   const imgNav = document.createElement("div");
   imgNav.classList.add("logo");
   imgNav.id = "homeLogo";
@@ -53,10 +58,10 @@ export async function createHeadings() {
       await data(searchArray[y][0], searchArray[y][1], searchArray[y][2]);
     });
   }
-  createSearch();
+
   header.appendChild(dropDown);
   dropDown.appendChild(navList);
-  document.documentElement.appendChild(header);
+  createSearch();
 }
 
 
