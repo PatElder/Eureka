@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Black.ttf") format("ttf"),
-    url("../fonts/Roboto-Light.ttf") format("ttf");
-  font-weight: 600;
-  font-style: normal;
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Black.ttf") format("ttf"),
+		url("../fonts/Roboto-Light.ttf") format("ttf");
+	font-weight: 600;
+	font-style: normal;
 }
 
 body {
-  margin: 0;
-  color: darkgray;
+	margin: 0;
+	color: darkgray;
 }
 
 main {
@@ -21,36 +21,36 @@ main {
 h1,
 h2,
 h3 {
-  margin: 1em;
-  border-bottom: 2px solid #f1f1f1;
+	margin: 1em;
+	border-bottom: 2px solid #f1f1f1;
 }
 
 p {
-  margin: 0 1em 0 2em;
-  font-family: "Roboto", sans-serif;
+	margin: 0 1em 0 2em;
+	font-family: "Roboto", sans-serif;
 }
 
 header {
-  font-family: "Roboto", sans-serif;
-  /*position: fixed;*/
-  top: 0;
-  display: inline-flex;
-  background-color: rgb(223, 221, 221, 0.5);
-  width: 100%;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: rgb(81, 81, 81);
+	font-family: "Roboto", sans-serif;
+	/*position: fixed;*/
+	top: 0;
+	display: inline-flex;
+	background-color: rgb(223, 221, 221, 0.5);
+	width: 100%;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: rgb(81, 81, 81);
 }
 
 #myDropdown > li {
-  float: left;
-  list-style-type: none;
-  list-style: none;
-  text-align: center;
-  padding: 20px;
-  cursor: pointer;
-  margin: 0;
-  overflow: hidden;
+	float: left;
+	list-style-type: none;
+	list-style: none;
+	text-align: center;
+	padding: 20px;
+	cursor: pointer;
+	margin: 0;
+	overflow: hidden;
 }
 
 #myDropdown{
@@ -58,35 +58,35 @@ header {
 }
 
 .dropDown > button {
-  display: none;
+	display: none;
 }
 
 #myDropdown > li:hover {
-  color: rgb(13, 33, 106);
+	color: rgb(13, 33, 106);
 }
 
 #myDropdown > li > #searchBar {
-  border: none;
-  border-radius: 2px;
-  padding: 5px;
-  box-shadow: 2px 2px 3px 2px rgb(179, 179, 179);
-  color: rgb(13, 33, 106);
+	border: none;
+	border-radius: 2px;
+	padding: 5px;
+	box-shadow: 2px 2px 3px 2px rgb(179, 179, 179);
+	color: rgb(13, 33, 106);
 }
 
-#myDropdown > li > button{
-  font-family: "Roboto", sans-serif;
-  color: rgb(81, 81, 81);
-  border: 1px solid rgb(208, 208, 208);
-  border-radius:px;
-  background-color: none;
-  margin-left: 0.5em;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 0.5em;
-  cursor: pointer;
+#myDropdown > li > button {
+	font-family: "Roboto", sans-serif;
+	color: rgb(81, 81, 81);
+	border: 1px solid rgb(208, 208, 208);
+	border-radius: px;
+	background-color: none;
+	margin-left: 0.5em;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 0.5em;
+	cursor: pointer;
 }
 #myDropdown > li > button:hover {
-  color: rgb(162, 24, 24);
+	color: rgb(162, 24, 24);
 }
 
 .logo {
@@ -102,35 +102,35 @@ header {
 }
 
 .news {
-  background-color: white;
-  margin: 1em auto;
-  padding: 0 0 2em 0;
-  font-family: "Roboto";
+	background-color: white;
+	margin: 1em auto;
+	padding: 0 0 2em 0;
+	font-family: "Roboto";
 }
 
 .news > img {
-  justify-self: center center;
-  width: 100%;
-  height: auto;
+	justify-self: center center;
+	width: 100%;
+	height: auto;
 }
 
 .news > h2 {
-  text-justify: center center;
-  color: rgb(90, 90, 90);
-  font-size: 2em;
+	text-justify: center center;
+	color: rgb(90, 90, 90);
+	font-size: 2em;
 }
 
 .news:focus,
 .news:hover {
-  background-color: #f1f1f1;
-  outline: 1px solid hsl(0, 0%, 80%);
+	background-color: #f1f1f1;
+	outline: 1px solid hsl(0, 0%, 80%);
 }
 
 .home-news {
-  display: grid;
-  grid-column: 2em;
-  grid-row-gap: 3em;
-  color: rgb(88, 88, 88);
+	display: grid;
+	grid-column: 2em;
+	grid-row-gap: 3em;
+	color: rgb(88, 88, 88);
 }
 
 #content > .homeNews{
@@ -138,25 +138,25 @@ header {
 }
 
 footer {
-  background-color: darkgrey;
-  font-size: 0.8em;
-  text-align: center;
-  letter-spacing: 0.1em;
-  color: rgb(88, 88, 88);
-  padding: 4em 0 7em 0;
-  margin-top: 5em;
+	background-color: darkgrey;
+	font-size: 0.8em;
+	text-align: center;
+	letter-spacing: 0.1em;
+	color: rgb(88, 88, 88);
+	padding: 4em 0 7em 0;
+	margin-top: 5em;
 }
 .footer-news > p {
-  margin-top: 0.5em;
+	margin-top: 0.5em;
 }
 
 a {
-  color: white;
-  text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 a:hover {
-  color: rgb(167, 28, 28);
+	color: rgb(167, 28, 28);
 }
 
 /* 
