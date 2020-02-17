@@ -13,7 +13,7 @@ export function createSearch() {
 	const searchEl = document.createElement("input");
 	searchEl.setAttribute("type", "search");
 	searchEl.id = "searchBar";
-	autocomplete(searchEl, suggestRay(searchArray));
+
 	searchBtn.addEventListener("click", async () => {
 		const searchTerm = searchEl.value;
 		if (searchTerm !== null) {

@@ -12,10 +12,10 @@ body {
 }
 
 main {
-  display: grid;
-  grid-gap: 1em;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
+	display: grid;
+	grid-gap: 1em;
+	justify-content: center;
+	font-family: "Roboto", sans-serif;
 }
 
 h1,
@@ -53,8 +53,8 @@ header {
 	overflow: hidden;
 }
 
-#myDropdown{
-  padding-left: 0;
+#myDropdown {
+	padding-left: 0;
 }
 
 .dropDown > button {
@@ -90,15 +90,15 @@ header {
 }
 
 .logo {
-  width: 30px;
-  height: auto;
-  cursor: pointer;
-  background-image: url("../img/logownews.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  padding: 3vw 5vw;
-  margin: 0 2em 0 3em;
+	width: 30px;
+	height: auto;
+	cursor: pointer;
+	background-image: url("../img/logownews.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	padding: 3vw 5vw;
+	margin: 0 2em 0 3em;
 }
 
 .news {
@@ -133,8 +133,8 @@ header {
 	color: rgb(88, 88, 88);
 }
 
-#content > .homeNews{
-  grid-template-columns: 1fr;
+#content > .homeNews {
+	grid-template-columns: 1fr;
 }
 
 footer {
@@ -165,42 +165,42 @@ a:hover {
 */
 
 @media (max-width: 480px) {
-  main {
-    margin: 0;
-    background-color: rgb(237, 238, 238);
-    grid-template-columns: 1fr;
-  }
+	main {
+		margin: 0;
+		background-color: rgb(237, 238, 238);
+		grid-template-columns: 1fr;
+	}
 
-  header {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background-color: rgb(255, 253, 253, 0.8);
-    font-size: 1em;;
-  }
-  #myDropdown > li {
-    float: none;
-    list-style-type: none;
-    text-align: center;
-  }
+	header {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		background-color: rgb(255, 253, 253, 0.8);
+		font-size: 1em;
+	}
+	#myDropdown > li {
+		float: none;
+		list-style-type: none;
+		text-align: center;
+	}
 
-  #myDropdown > ul {
-    overflow: hidden;
-  }
+	#myDropdown > ul {
+		overflow: hidden;
+	}
 
-  #myDropdown > li:hover{
-    background-color: rgb(187, 187, 187);
-  }
+	#myDropdown > li:hover {
+		background-color: rgb(187, 187, 187);
+	}
 
-  .logo {
-    background-image: url("../img/logownlong.svg");
-    width: 150px;
-    height: auto;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+	.logo {
+		background-image: url("../img/logownlong.svg");
+		width: 150px;
+		height: auto;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 /* 
@@ -209,7 +209,6 @@ a:hover {
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
 }
 
 /* 
@@ -217,9 +216,8 @@ a:hover {
   ##Screen = B/w 1025px to 1280px
 */
 
-@media (min-width: 1025px){
-  main {
-    grid-template-columns: repeat(2, 30em);
-  }
-  
+@media (min-width: 1025px) {
+	main {
+		grid-template-columns: repeat(2, 30em);
+	}
 }

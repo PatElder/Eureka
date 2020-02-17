@@ -3,6 +3,7 @@ import newsTemplate from "../../../hbs/news.hbs";
 import homeTemplate from "../../../hbs/home.hbs";
 import { searchArray, checkForReRender } from "../../localStorage/localSearch";
 import { createSearch } from "../../components/Menu/searchBar";
+import { createHome } from "../home";
 
 export async function data(search, num, language) {
 	const newsData = await getNews(search, num, language);
@@ -12,7 +13,10 @@ export async function data(search, num, language) {
 	if (document.getElementById("content") !== null) {
 		document.getElementById("content").remove();
 	}
-	const displayQty = newsData.articles.length;
+	let displayQty =
+		typeof newsData.articles.length == "undefined"
+			? createHome()
+			: newsData.articles.length;
 	let mainEl = document.createElement("main");
 	mainEl.id = "content";
 	for (let i = 0; i < displayQty; i++) {
