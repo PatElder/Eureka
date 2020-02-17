@@ -1,1 +1,13 @@
-<div></div>
+
+<div class="news">
+    {{#if urlToImage}}
+    <img src="{{urlToImage}}"/>
+    <h2>{{title}} </h2>
+    <p>{{description}}</p>
+    {{else}}
+    
+    {{/if}}
+    <div class="news-description"></div>
+    <p>{{content}}</p>
+</div>
+
