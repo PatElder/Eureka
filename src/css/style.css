@@ -1,13 +1,223 @@
 @font-face {
-  font-family: "MyFont";
-  src: url("./my-font.woff2") format("woff2"),
-    url("./my-font.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Black.ttf") format("ttf"),
+		url("../fonts/Roboto-Light.ttf") format("ttf");
+	font-weight: 600;
+	font-style: normal;
 }
 
-.hello {
-  color: red;
-  font-family: "MyFont";
-  background: url("./icon.jpg");
+body {
+	margin: 0;
+	color: darkgray;
+}
+
+main {
+	display: grid;
+	grid-gap: 1em;
+	justify-content: center;
+	font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	margin: 1em;
+	border-bottom: 2px solid #f1f1f1;
+}
+
+p {
+	margin: 0 1em 0 2em;
+	font-family: "Roboto", sans-serif;
+}
+
+header {
+	font-family: "Roboto", sans-serif;
+	/*position: fixed;*/
+	top: 0;
+	display: inline-flex;
+	background-color: rgb(223, 221, 221, 0.5);
+	width: 100%;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: rgb(81, 81, 81);
+}
+
+#myDropdown > li {
+	float: left;
+	list-style-type: none;
+	list-style: none;
+	text-align: center;
+	padding: 20px;
+	cursor: pointer;
+	margin: 0;
+	overflow: hidden;
+}
+
+#myDropdown {
+	padding-left: 0;
+}
+
+.dropDown > button {
+	display: none;
+}
+
+#myDropdown > li:hover {
+	color: rgb(13, 33, 106);
+}
+
+#myDropdown > li > #searchBar {
+	border: none;
+	border-radius: 2px;
+	padding: 5px;
+	box-shadow: 2px 2px 3px 2px rgb(179, 179, 179);
+	color: rgb(13, 33, 106);
+}
+
+#myDropdown > li > button {
+	font-family: "Roboto", sans-serif;
+	color: rgb(81, 81, 81);
+	border: 1px solid rgb(208, 208, 208);
+	border-radius: px;
+	background-color: none;
+	margin-left: 0.5em;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 0.5em;
+	cursor: pointer;
+}
+#myDropdown > li > button:hover {
+	color: rgb(162, 24, 24);
+}
+
+.logo {
+	width: 30px;
+	height: auto;
+	cursor: pointer;
+	background-image: url("../img/logownews.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	padding: 3vw 5vw;
+	margin: 0 2em 0 3em;
+}
+
+.news {
+	background-color: white;
+	margin: 1em auto;
+	padding: 0 0 2em 0;
+	font-family: "Roboto";
+}
+
+.news > img {
+	justify-self: center center;
+	width: 100%;
+	height: auto;
+}
+
+.news > h2 {
+	text-justify: center center;
+	color: rgb(90, 90, 90);
+	font-size: 2em;
+}
+
+.news:focus,
+.news:hover {
+	background-color: #f1f1f1;
+	outline: 1px solid hsl(0, 0%, 80%);
+}
+
+.home-news {
+	display: grid;
+	grid-column: 2em;
+	grid-row-gap: 3em;
+	color: rgb(88, 88, 88);
+}
+
+#content > .homeNews {
+	grid-template-columns: 1fr;
+}
+
+footer {
+	background-color: darkgrey;
+	font-size: 0.8em;
+	text-align: center;
+	letter-spacing: 0.1em;
+	color: rgb(88, 88, 88);
+	padding: 4em 0 7em 0;
+	margin-top: 5em;
+}
+.footer-news > p {
+	margin-top: 0.5em;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgb(167, 28, 28);
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (max-width: 480px) {
+	main {
+		margin: 0;
+		background-color: rgb(237, 238, 238);
+		grid-template-columns: 1fr;
+	}
+
+	header {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		background-color: rgb(255, 253, 253, 0.8);
+		font-size: 1em;
+	}
+	#myDropdown > li {
+		float: none;
+		list-style-type: none;
+		text-align: center;
+	}
+
+	#myDropdown > ul {
+		overflow: hidden;
+	}
+
+	#myDropdown > li:hover {
+		background-color: rgb(187, 187, 187);
+	}
+
+	.logo {
+		background-image: url("../img/logownlong.svg");
+		width: 150px;
+		height: auto;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) {
+	main {
+		grid-template-columns: repeat(2, 30em);
+	}
 }
