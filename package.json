@@ -35,7 +35,7 @@
 		"babel-loader": "^8.0.6",
 		"babel-plugin-syntax-async-functions": "^6.13.0",
 		"corejs": "^1.0.0",
-		"css-loader": "^3.4.2",
+		"css-loader": "^5.2.6",
 		"file-loader": "^5.0.2",
 		"handlebars": "^4.7.3",
 		"handlebars-loader": "^1.7.1",
